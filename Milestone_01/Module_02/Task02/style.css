@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    color: tomato;
+    background-color: rgba(27, 125, 27, 0.485);
+}
+
+p {
+    margin: 2%;
+    padding: 5%;
+    border: 2px solid teal;
+}
+
+ul {
+    list-style-type: circle;
+
+}
+
+li {
+    color: teal;
+    font-style: normal;
+}

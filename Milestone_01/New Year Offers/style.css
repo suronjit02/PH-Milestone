@@ -1,0 +1,52 @@
+/* font class */
+
+.merriweather-font {
+    font-family: "Merriweather", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+.inter-font {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+
+/* body style */
+
+body {
+    padding-left: 140px;
+    padding-right: 140px;
+
+}
+
+/* header part style */
+.header-bg {
+
+    background-image: linear-gradient(rgba(7, 2, 17, 1), rgba(7, 2, 17, 0)), url('images/Banner\ Image.png');
+    height: 600px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 16px;
+
+}
+
+.header-content {
+    text-align: center;
+    color: white;
+    padding: 177px 344px;
+}
+
+.header-tittle {
+    font-size: 72px;
+    margin: 0;
+}
+
+.header-greeting {
+    font-size: 32px;
+    margin-bottom: 16px;
+}

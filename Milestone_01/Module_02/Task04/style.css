@@ -1,0 +1,14 @@
+html {
+    background-image: url('image.jpg');
+}
+
+div {
+    height: 50%;
+    width: 100%;
+    background-color: rgb(71, 198, 189);
+
+}
+
+body {
+    background-color: black;
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mediaquery</title>
+
+    <style>
+        .conteiner {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .product-item {
+            border: 2px solid teal;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .product-item img {
+            width: 100%;
+        }
+
+
+        /* Media Query for small device */
+
+        @media screen and (max-width: 576px) {
+            .conteiner {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+        }
+
+        /* mediam device */
+
+        @media screen and (min-width: 577px) and (max-width: 992px) {
+
+            .conteiner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- .conteiner>.product-item*12>img[src="image/product.jpg"]+h3{Product-$}+p{Price \$$00}+p>lorem20^btn{Buy now} -->
+
+    <div class="conteiner">
+        <div class="product-item">
+            <img src="image/product.jpg" alt="">
+            <h3>Product-1</h3>
+            <p>Price $100</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis molestiae aspernatur nulla repudiandae
+                reiciendis, eos quam nisi accusamus necessitatibus magnam?</p>
+            <button>Buy now</button>
+        </div>
+        <div class="product-item">
+            <img src="image/product.jpg" alt="">
+            <h3>Product-2</h3>
+            <p>Price $200</p>
+            <p>Repudiandae, repellat. Optio veniam minima iure consequatur voluptatem? Molestiae eaque ut rem illo porro
+                architecto hic cum, deserunt nemo quaerat.</p>
+            <button>Buy now</button>
+        </div>
+        <div class="product-item">
+            <img src="image/product.jpg" alt="">
+            <h3>Product-3</h3>
+            <p>Price $300</p>
+            <p>Ut nobis obcaecati quisquam assumenda, necessitatibus dolor labore et expedita, molestiae inventore
+                asperiores pariatur tempora ratione adipisci, architecto non ipsa.</p>
+            <button>Buy now</button>
+        </div>
+        <div class="product-item">
+            <img src="image/product.jpg" alt="">
+            <h3>Product-4</h3>
+            <p>Price $400</p>
+            <p>Iusto minima quo minus architecto aliquid accusamus nobis, sunt non harum consequatur rem quasi
+                praesentium nam tempore beatae similique? Minus.</p>
+            <button>Buy now</button>
+        </div>
+        <div class="product-item">
+            <img src="image/product.jpg" alt="">
+            <h3>Product-5</h3>
+            <p>Price $500</p>
+            <p>Sapiente quo amet distinctio dolores. Cum magni corrupti ipsum cupiditate consequuntur sequi commodi
+                inventore odit obcaecati debitis, repudiandae ducimus nemo!</p>
+            <button>Buy now</button>
+        </div>
+        <div class="product-item">
+            <img src="image/product.jpg" alt="">
+            <h3>Product-6</h3>
+            <p>Price $600</p>
+            <p>Quas, inventore alias! Modi quae earum suscipit ipsum corrupti et, quibusdam praesentium repudiandae
+                corporis itaque incidunt obcaecati, ea deleniti nihil?</p>
+            <button>Buy now</button>
+        </div>
+        <div class="product-item">
+            <img src="image/product.jpg" alt="">
+            <h3>Product-7</h3>
+            <p>Price $700</p>
+            <p>Vero mollitia autem, soluta ut eveniet totam magni impedit vel possimus harum itaque! Officiis, autem
+                eos? Sint repudiandae laudantium fuga?</p>
+            <button>Buy now</button>
+        </div>
+        <div class="product-item">
+            <img src="image/product.jpg" alt="">
+            <h3>Product-8</h3>
+            <p>Price $800</p>
+            <p>Minima voluptate nesciunt quisquam, ratione commodi exercitationem excepturi cupiditate aspernatur sed
+                eos dolores veniam iusto labore nulla, ipsa veritatis quis!</p>
+            <button>Buy now</button>
+        </div>
+        <div class="product-item">
+            <img src="image/product.jpg" alt="">
+            <h3>Product-9</h3>
+            <p>Price $900</p>
+            <p>Necessitatibus ullam itaque voluptates laborum consequatur illo, culpa maxime sapiente! Aspernatur hic
+                neque doloremque veniam non provident labore, alias dolore.</p>
+            <button>Buy now</button>
+        </div>
+        <div class="product-item">
+            <img src="image/product.jpg" alt="">
+            <h3>Product-10</h3>
+            <p>Price $1000</p>
+            <p>Quo porro, dignissimos iure excepturi, mollitia magni quasi vel molestias iste at fugit, nam facilis
+                doloribus fugiat! Maxime, sit aspernatur?</p>
+            <button>Buy now</button>
+        </div>
+        <div class="product-item">
+            <img src="image/product.jpg" alt="">
+            <h3>Product-11</h3>
+            <p>Price $1100</p>
+            <p>Vero id laboriosam voluptate illum quasi doloremque eos, sapiente ea autem fugit quis repudiandae tempore
+                iste eveniet architecto doloribus optio?</p>
+            <button>Buy now</button>
+        </div>
+        <div class="product-item">
+            <img src="image/product.jpg" alt="">
+            <h3>Product-12</h3>
+            <p>Price $1200</p>
+            <p>Placeat architecto perspiciatis sint dolorem quo, labore nihil exercitationem minus expedita maiores
+                possimus alias error facere soluta voluptatem repellendus libero!</p>
+            <button>Buy now</button>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

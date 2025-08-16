@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+}
+
+h1 {
+    color: teal;
+    padding: 3%;
+    background-color: blanchedalmond;
+}
+
+.first-p {
+    color: bisque;
+    padding: 2%;
+    background-color: tomato;
+}
+
+.second-p {
+    padding: 2%;
+    background-color: rgba(0, 128, 128, 0.517);
+}
+
+#id-p-last {
+    padding: 2%;
+    background-color: rgb(237, 203, 153);
+}
+
+footer {
+    text-align: center;
+    margin-top: 10%;
+
+}
