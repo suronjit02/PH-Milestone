@@ -5,11 +5,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payo</title>
+
+    <!-- tailwind and daisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- fortawesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body class="bg-[#F4F5F7] h-[100vh]">
 
-    <h3>Home cheek</h3>
+    <div class="bg-white rounded-b-[20px] max-w-lg m-auto">
+
+        <!-- navigation bar -->
+        <nav class="flex  items-center justify-between max-w-lg m-auto p-5 border-b-1">
+            <div class="flex justify-between items-center gap-2">
+                <img class="h-10" src="assets/Group.png" alt="">
+                <div>
+                    <h1 class="text-[18px] font-bold text-[#302f2f]">$<span>45000</span></h1>
+                    <p class="text-[#3f3b3b]">Available Balance</p>
+                </div>
+            </div>
+
+            <button class="btn btn-soft font-bold text-[#3f3b3b] bg-slate-100 rounded-[10px] border-b-red-200"><i
+                    class="fa-solid fa-arrow-right-from-bracket rotate-180 text-[#080808]"></i>Log
+                Out</button>
+
+        </nav>
+
+        <!-- welcome note -->
+        <section class="max-w-lg m-auto p-5 ">
+            <h2 class=" text-[#080808] font-bold text-[24px]">🔥 Welcome to Payooo!</h2>
+
+            <p class="text-[#080808a3] text-[16px]">Enjoy easy and convenient financial services with us. Cashout charge
+                is
+                low and</p>
+        </section>
+
+        <!-- card section -->
+        <section class="grid grid-cols-3 gap-4 h-80 max-w-lg m-auto p-5">
+
+            <div class="card bg-base-100 shadow-sm justify-center items-center ">
+                <img class="h-10 w-10" src="assets/wallet1.png" alt="">
+                <h2 class="card-title">Add Money</h2>
+            </div>
+
+            <div class="card bg-base-100 shadow-sm justify-center items-center">
+                <img class="h-10 w-10" src="assets/send1.png" alt="">
+                <h2 class="card-title">Cashout</h2>
+            </div>
+
+            <div class="card bg-base-100 shadow-sm justify-center items-center">
+                <img class="h-10 w-10" src="assets/money1.png" alt="">
+                <h2 class="card-title">Transfer Money</h2>
+            </div>
+
+            <div class="card bg-base-100 shadow-sm justify-center items-center">
+                <img class="h-10 w-10" src="assets/bonus1.png" alt="">
+                <h2 class="card-title">Get Bonus</h2>
+            </div>
+
+            <div class="card bg-base-100 shadow-sm justify-center items-center">
+                <img class="h-10 w-10" src="assets/purse1.png" alt="">
+                <h2 class="card-title">Pay Bill</h2>
+            </div>
+
+            <div class="card bg-base-100 shadow-sm justify-center items-center">
+                <img class="h-10 w-10" src="assets/transaction1.png" alt="">
+                <h2 class="card-title">Transactions</h2>
+            </div>
+
+        </section>
+    </div>
+
+
 
 </body>
 
