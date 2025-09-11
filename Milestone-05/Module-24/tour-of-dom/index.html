@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour of DOM</title>
+
+    <style>
+        .red{
+            color: red;
+        }
+
+        .bold{
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header>
+        <h1 id="header-h1">My dom here</h1>
+    </header>
+
+    <main>
+
+        <h1>Welcome to My DOM</h1>
+
+        <ul>
+            <li>Jalaliset</li>
+            <li>Jankarset</li>
+            <li>Paglu</li>
+        </ul>
+
+
+        <ul class="food">
+            <li>lentil</li>
+            <li>anda</li>
+            <li>pasta</li>
+            <li>pithja</li>
+        </ul>
+
+    </main>
+
+    <script>
+
+        const liCollection = document.getElementsByTagName('li');
+
+        for (let li of liCollection) {
+            console.log(li.innerText);
+        }
+
+    </script>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
