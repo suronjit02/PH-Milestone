@@ -2,12 +2,24 @@
 import reactLogo from './assets/react.svg'
 import './App.css'
 
+
+import Todo from './Todo.jsx'
+
 function App() {
 
   return (
     <>
 
-      <Student></Student>
+      {/* <Todo task="anda paro" ></Todo> */}
+
+      <Todo task="anda paro" isdone="true"></Todo>
+      <Todo task="anda bikri koro" isdone="fals"></Todo>
+
+
+
+
+
+      {/* <Student></Student>
       <Person></Person>
       <Developer name="ami nije" tech="JavaScript"></Developer>
       <Developer name="amr bow" tech="andaw pare na"></Developer>
@@ -21,7 +33,21 @@ function App() {
       <Player name="Liton" run="5200"></Player>
       <Player name="Abul"></Player>
 
+      <Salami event="edemilladunnobi" amount="600"></Salami> */}
+
+
     </>
+  )
+}
+
+function Salami({ event, amount }) {
+  return (
+
+    <div className='student'>
+      <h2>Salami for: {event}</h2>
+      <h2>Amount: {amount}</h2>
+    </div>
+
   )
 }
 
