@@ -16,9 +16,6 @@ function App() {
       <Todo task="anda bikri koro" isdone="fals"></Todo>
 
 
-
-
-
       {/* <Student></Student>
       <Person></Person>
       <Developer name="ami nije" tech="JavaScript"></Developer>
