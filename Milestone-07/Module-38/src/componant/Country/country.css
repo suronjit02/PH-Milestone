@@ -1,0 +1,24 @@
+.country {
+    border: 2px solid salmon;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.country-visited {
+    border: 2px solid salmon;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: aquamarine;
+}
+
+.visited-flag-container img {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.visited-flag-container {
+    border: 2px solid green;
+    padding: 10px;
+}
