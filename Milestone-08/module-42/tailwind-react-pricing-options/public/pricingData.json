@@ -1,0 +1,42 @@
+{
+    "pricingPlans": [
+        {
+            "id": 1,
+            "name": "Basic",
+            "price": 1500,
+            "currency": "BDT",
+            "duration": "1 Month",
+            "features": [
+                "Access to gym floor",
+                "Free locker",
+                "1 personal training session"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Pro",
+            "price": 3500,
+            "currency": "BDT",
+            "duration": "3 Months",
+            "features": [
+                "Access to all equipment",
+                "Group fitness classes",
+                "2 personal training sessions",
+                "Nutrition consultation"
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Elite",
+            "price": 7000,
+            "currency": "BDT",
+            "duration": "6 Months",
+            "features": [
+                "Unlimited access",
+                "VIP locker & shower access",
+                "Weekly personal training",
+                "Diet & progress tracking app access"
+            ]
+        }
+    ]
+}
