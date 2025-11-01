@@ -1,9 +1,21 @@
 import React from 'react';
+import Navbar from '../Components/Navbar';
+import Footer from '../Components/Footer';
 
 const About = () => {
     return (
         <div>
-            <h1>This is an About page.</h1>
+
+            <Navbar />
+
+            <main className='min-h-[calc(100vh-285px)]'>
+
+                <h1 className='text-blue-500'>This is an About page.</h1>
+
+            </main>
+
+            <Footer />
+
         </div>
     );
 };
