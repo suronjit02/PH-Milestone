@@ -6,15 +6,7 @@ const About = () => {
     return (
         <div>
 
-            <Navbar />
-
-            <main className='min-h-[calc(100vh-285px)]'>
-
-                <h1 className='text-blue-500'>This is an About page.</h1>
-
-            </main>
-
-            <Footer />
+                <h1 className='text-blue-500'>This is an About page.</h1>   
 
         </div>
     );
