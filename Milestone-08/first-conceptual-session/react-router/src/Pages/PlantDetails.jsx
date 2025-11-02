@@ -1,6 +1,9 @@
 import React from 'react';
 
 const PlantDetails = () => {
+
+    
+
     return (
         <div className="card bg-base-100 max-w-150 mx-auto my-5 shadow-sm">
             <figure>

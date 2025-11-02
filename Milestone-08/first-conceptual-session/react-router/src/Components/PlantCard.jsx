@@ -6,7 +6,7 @@ const PlantCard = ({ plant }) => {
 
     const { name, image, category, price } = plant;
 
-    console.log(plant);
+    // console.log(plant);
 
     return (
         <div>
