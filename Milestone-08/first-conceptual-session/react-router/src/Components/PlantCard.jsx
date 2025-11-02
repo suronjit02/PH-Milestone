@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router';
+import PlantDetails from '../Pages/PlantDetails';
 
 const PlantCard = ({ plant }) => {
 
-    const { name, image, description } = plant;
+    const { name, image, category, price } = plant;
 
     console.log(plant);
 
@@ -15,9 +17,10 @@ const PlantCard = ({ plant }) => {
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
-                    <p>{description}</p>
+                    <p>Category: {category}</p>
+                    <p>Price: {price}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <Link to='/plant-details' className="btn btn-primary">View Details</Link>
                     </div>
                 </div>
             </div>
