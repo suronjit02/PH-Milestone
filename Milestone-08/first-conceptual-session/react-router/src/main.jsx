@@ -38,8 +38,8 @@ const router = createBrowserRouter([
         Component: Contact
       },
       {
-        path: '/plant-details',
-        Component: PlantDetails
+        path: '/plant-details/:id',
+        Component: PlantDetails,
       },
 
     ]

@@ -4,7 +4,7 @@ import PlantDetails from '../Pages/PlantDetails';
 
 const PlantCard = ({ plant }) => {
 
-    const { name, image, category, price } = plant;
+    const { name, image, category, price, id } = plant;
 
     // console.log(plant);
 
@@ -20,7 +20,7 @@ const PlantCard = ({ plant }) => {
                     <p>Category: {category}</p>
                     <p>Price: {price}</p>
                     <div className="card-actions justify-end">
-                        <Link to='/plant-details' className="btn btn-primary">View Details</Link>
+                        <Link to={`/plant-details/${id}`} className="btn btn-primary">View Details</Link>
                     </div>
                 </div>
             </div>

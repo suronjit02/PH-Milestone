@@ -1,20 +1,24 @@
 import React from 'react';
 
-const PlantDetails = () => {
 
+
+const PlantDetails = ({ plant }) => {
     
+    if (!plant) return <p className='w-full mx-100 text-5xl  my-50'>No plant data found</p>;
 
+    const { name, image, category, price, } = plant;
+    
     return (
         <div className="card bg-base-100 max-w-150 mx-auto my-5 shadow-sm">
            
             <figure>
                 <img
-                    src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                    alt="Shoes" />
+                    src={image} />
             </figure>
             <div className="card-body">
-                <h2 className="card-title">Card Title</h2>
-                <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                <h2 className="card-title">{name}</h2>
+                <p>{category}</p>
+                <p>{price}</p>
                 <div className="card-actions justify-end">
                     <button className="btn btn-primary">Buy Now</button>
                 </div>
