@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     path: '/',
     Component: RootLayout,
     children: [
-    
+
       {
         path: "/",
         Component: Home,
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       {
         path: '/about',
         Component: About,
-        
+
       },
 
       {

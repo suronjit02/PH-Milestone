@@ -19,7 +19,7 @@ const Home = () => {
 
     const { plants } = useLoaderData();
 
-    console.log(plants)
+    // console.log(plants)
 
 
     return (

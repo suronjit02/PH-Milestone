@@ -20,7 +20,7 @@ const PlantCard = ({ plant }) => {
                     <p>Category: {category}</p>
                     <p>Price: {price}</p>
                     <div className="card-actions justify-end">
-                        <Link to={`/plant-details/${id}`} className="btn btn-primary">View Details</Link>
+                        <Link to={`/plant-details/${id}`} state={plant} className="btn btn-primary">View Details</Link>
                     </div>
                 </div>
             </div>
