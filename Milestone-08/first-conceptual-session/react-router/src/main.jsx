@@ -8,18 +8,19 @@ import Contact from './Pages/Contact.jsx';
 import Home from './Pages/Home.jsx';
 import RootLayout from './Layouts/RootLayout.jsx';
 import PlantDetails from './Pages/PlantDetails.jsx';
+import Loading from './Components/Loading.jsx';
 
 const router = createBrowserRouter([
 
   {
     path: '/',
     Component: RootLayout,
+    hydrateFallbackElement: <Loading/>,
     children: [
 
       {
-        path: "/",
+        path: '/',
         Component: Home,
-
         loader: () => fetch('https://openapi.programming-hero.com/api/plants'),
       },
       {

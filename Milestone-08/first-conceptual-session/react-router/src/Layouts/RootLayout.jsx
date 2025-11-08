@@ -1,22 +1,26 @@
 import React from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
-import { Outlet } from 'react-router';
+import { Outlet, useNavigation } from 'react-router';
+import Loading from '../Components/Loading';
 
 const RootLayout = () => {
+
+    const navigation = useNavigation();
 
     return (
         <div>
 
             <Navbar />
 
-            <main className='min-h-[calc(100vh-285px)]'>
+            {navigation.state === "loading" ? (
+                <Loading />
+            ) : (
+                <main className='min-h-[calc(100vh-285px)]'>
+                    <Outlet />
+                </main>
+            )}
 
-                {/* <h1 className=' '>RootLayout</h1> */}
-
-                <Outlet />
-                
-            </main>
 
             <Footer />
 
