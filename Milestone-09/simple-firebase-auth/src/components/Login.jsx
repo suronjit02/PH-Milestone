@@ -34,7 +34,7 @@ const Login = () => {
 
   return (
     <div>
-      <h2>Please Login</h2>
+      <h2>Login Page</h2>
 
       {/* <button onClick={handleGoogleSignIn}>Sign In With Google</button>
       <button onClick={handleSignOut}>Sign Out</button> */}
