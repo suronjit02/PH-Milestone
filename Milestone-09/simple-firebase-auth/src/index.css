@@ -35,6 +35,13 @@ h1 {
   line-height: 1.1;
 }
 
+nav a{
+  margin-left: 15px;
+}
+nav a.active{
+  text-decoration: underline;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
