@@ -1,6 +1,6 @@
-import { createUserWithEmailAndPassword } from "firebase/auth/cordova";
 import React from "react";
-
+import { auth } from "";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Register = () => {
   const handleRegister = (event) => {
@@ -9,18 +9,21 @@ const Register = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
 
-    console.log("email:", email);
-    console.log("password:", password);
+    // console.log("email:", email);
+    // console.log("password:", password);
 
-    createUserWithEmailAndPassword()
-      
-      .then((result) => {
-      console.log(result.user)
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(result => {
+        console.log(result.user);
       })
       .catch(error => {
         console.log(error);
     })
+
   };
+
+
+  
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
