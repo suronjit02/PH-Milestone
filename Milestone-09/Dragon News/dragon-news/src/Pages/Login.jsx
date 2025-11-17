@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import { Link } from "react-router";
+import { Link, Navigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
@@ -12,7 +12,9 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     logIn(email, password)
-      .then(() => {})
+      .then(() => {
+        <Navigate to="/"></Navigate>;
+      })
       .catch((error) => {
         console.log(error.message);
       });
