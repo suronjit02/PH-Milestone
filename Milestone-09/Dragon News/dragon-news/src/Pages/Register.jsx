@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 
@@ -8,9 +8,12 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
 
+    const [emailError, setEmailError] = useState();
+
     const form = e.target;
     // const name = form.name.value;
     // const photoUrl = form.photoUrl.value;
+
     const email = form.email.value;
     const password = form.password.value;
     // console.log(name, photoUrl, email, password);
