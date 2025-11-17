@@ -1,21 +1,30 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
- 
-    const handleRegister = (e) => {
+  const { createUser, setUser } = use(AuthContext);
+
+  const handleRegister = (e) => {
     e.preventDefault();
 
-      console.log("click");
-        const form = e.target;
+    const form = e.target;
+    // const name = form.name.value;
+    // const photoUrl = form.photoUrl.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    // console.log(name, photoUrl, email, password);
 
-        const name = form.name.value;
-        const photoUrl = form.photoUrl.value;
-        const email = form.email.value;
-        const password = form.password.value;
-
-        console.log(name, photoUrl, email, password);
-
+    createUser(email, password)
+      .then((result) => {
+        // console.log(result.user);
+        const user = result.user;
+        setUser(user);
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+    // console.log(user);
   };
   return (
     <div className="flex justify-center min-h-screen items-center">
@@ -34,6 +43,7 @@ const Register = () => {
                 name="name"
                 className="input"
                 placeholder="Enter your Name"
+                required
               />
 
               {/* photo url */}
@@ -52,6 +62,7 @@ const Register = () => {
                 name="email"
                 className="input"
                 placeholder="Email"
+                required
               />
 
               {/* password */}
@@ -61,14 +72,17 @@ const Register = () => {
                 name="password"
                 className="input"
                 placeholder="Password"
+                required
               />
 
               <label className="label">
-                <input type="checkbox" className="checkbox" />
+                <input type="checkbox" required className="checkbox" />
                 Accept Term & Conditions
               </label>
 
-              <button className="btn btn-primary mt-4">Register</button>
+              <button type="submit" className="btn btn-primary mt-4">
+                Register
+              </button>
               <p className="font-semibold text-center mt-2">
                 Already Have An Account ?{" "}
                 <Link to="/auth/login" className="text-secondary">

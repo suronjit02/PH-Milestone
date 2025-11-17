@@ -8,7 +8,7 @@ const FindUs = () => {
         <h2 className="font-bold">Find Us</h2>
 
         <div className="join join-vertical w-full mt-2 ">
-          <button className="btn join-item bg-white justify-start">
+          <button className="btn join-item text-blue-500 bg-white justify-start">
             <FaFacebook />
             Facebook
           </button>
@@ -16,7 +16,7 @@ const FindUs = () => {
             <FaTwitter />
             Twitter
           </button>
-          <button className="btn join-item bg-white justify-start">
+          <button className="btn join-item text-red-700 bg-white justify-start">
             <BsInstagram />
             Instagram
           </button>
