@@ -8,12 +8,9 @@ app.use(cors());
 
 // 20rq5EZVX4EZqWQX
 
-
-
 const uri =
-  "mongodb+srv://suronjit:<db_password>@cluster0.gotmti8.mongodb.net/?appName=Cluster0";
+  "mongodb+srv://model-db:3TfIlgVVZ7HCqhqs@cluster0.gotmti8.mongodb.net/?appName=Cluster0";
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -24,9 +21,8 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
-    // Send a ping to confirm a successful connection
+
     await client.db("admin").command({ ping: 1 });
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
@@ -37,7 +33,6 @@ async function run() {
   }
 }
 run().catch(console.dir);
-
 
 app.get("/", (req, res) => {
   res.send("this is this");
