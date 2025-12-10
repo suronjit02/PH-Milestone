@@ -11,6 +11,7 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.init";
+import axios from "axios";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext();
@@ -21,6 +22,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [role, setRole] = useState("");
 
   const createUser = (email, password, name, photoURL) => {
     setLoading(true);
@@ -65,10 +67,22 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser || null);
+
       setLoading(false);
     });
     return () => unsubscribe();
   }, []);
+
+  useEffect(() => {
+    if (!user) return;
+    axios.get(`http://localhost:5000/users/role/${user.email}`).then((res) => {
+      console.log(res.data.role);
+
+      setRole(res.data.role);
+    });
+  }, [user]);
+
+  console.log(role);
 
   return (
     <AuthContext.Provider
@@ -81,6 +95,7 @@ const AuthProvider = ({ children }) => {
         googleLogin,
         logOut,
         resetPassword,
+        role,
       }}
     >
       {children}

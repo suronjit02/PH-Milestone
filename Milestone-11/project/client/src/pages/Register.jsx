@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { useContext, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import axios from "axios";
 
 const Register = () => {
   const { createUser, googleLogin } = useContext(AuthContext);
@@ -11,12 +12,15 @@ const Register = () => {
   const [error, setError] = useState("");
   const [showPass, setShowPass] = useState(false);
 
-  const handleSignUp = (event) => {
+  const handleSignUp = async (event) => {
     event.preventDefault();
     const name = event.target.name.value;
     const email = event.target.email.value;
-    const photoUrl = event.target.photoUrl.value;
     const password = event.target.password.value;
+    const photoUrl = event.target.photoUrl;
+
+    const file = photoUrl.files[0];
+    // console.log(file);
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
@@ -27,13 +31,43 @@ const Register = () => {
       return;
     }
 
-    createUser(email, password, name, photoUrl)
-      .then(() => {
-        navigate(`${location.state ? location.state.from : "/"}`);
-      })
-      .catch((error) => {
-        setError(error.code);
-      });
+    const res = await axios.post(
+      `https://api.imgbb.com/1/upload?expiration=600&key=96c9ca8c8f54ca0770ab6f539a3b5d5a`,
+      { image: file },
+
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+    const mainPhotoUrl = res.data.data.display_url;
+
+    const formData = {
+      name,
+      email,
+      password,
+      mainPhotoUrl,
+    };
+
+    if (res.data.success == true) {
+      createUser(email, password, name, mainPhotoUrl)
+        .then(() => {
+          axios
+            .post("http://localhost:5000/users", formData)
+            .then((res) => {
+              console.log(res.data);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+
+          navigate(`${location.state ? location.state.from : "/"}`);
+        })
+        .catch((error) => {
+          setError(error.code);
+        });
+    }
   };
 
   const handleGoogleLogin = () => {
@@ -63,28 +97,28 @@ const Register = () => {
           <div className="flex flex-col">
             <label className="font-semibold mb-1">Name</label>
             <input
-              required
+              //   required
               type="text"
               name="name"
               placeholder="Write your name here"
               className="input input-bordered focus:outline-none w-full"
             />
-          </div>
+          </div> 
 
           <div className="flex flex-col">
             <label className="font-semibold mb-1">Photo Url</label>
             <input
-              type="text"
+              type="file"
               name="photoUrl"
               placeholder="Photo Url"
-              className="input input-bordered focus:outline-none w-full"
+              className="input input-bordered focus:outline-none w-full font-semibold cursor-pointer"
             />
           </div>
 
           <div className="flex flex-col">
             <label className="font-semibold mb-1">Email</label>
             <input
-              required
+              //   required
               type="email"
               name="email"
               placeholder="Email here"
@@ -96,7 +130,7 @@ const Register = () => {
             <label className="font-semibold mb-1">Password</label>
             <div className="relative">
               <input
-                required
+                // required
                 type={showPass ? "text" : "password"}
                 name="password"
                 placeholder="Password here"
