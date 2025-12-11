@@ -15,12 +15,13 @@ const Register = () => {
   const handleSignUp = async (event) => {
     event.preventDefault();
     const name = event.target.name.value;
+    const role = event.target.role.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
     const photoUrl = event.target.photoUrl;
-
     const file = photoUrl.files[0];
-    // console.log(file);
+
+    console.log(role);
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
@@ -48,6 +49,7 @@ const Register = () => {
       email,
       password,
       mainPhotoUrl,
+      role,
     };
 
     if (res.data.success == true) {
@@ -103,7 +105,7 @@ const Register = () => {
               placeholder="Write your name here"
               className="input input-bordered focus:outline-none w-full"
             />
-          </div> 
+          </div>
 
           <div className="flex flex-col">
             <label className="font-semibold mb-1">Photo Url</label>
@@ -114,6 +116,18 @@ const Register = () => {
               className="input input-bordered focus:outline-none w-full font-semibold cursor-pointer"
             />
           </div>
+
+          <label className="font-semibold">Your Role</label>
+          <select
+            required
+            name="role"
+            defaultValue="Chose Role"
+            className="select w-full"
+          >
+            <option disabled={true}>Chose Role</option>
+            <option value="manager">Manager</option>
+            <option value="buyer">Buyer</option>
+          </select>
 
           <div className="flex flex-col">
             <label className="font-semibold mb-1">Email</label>

@@ -121,6 +121,9 @@ const Navbar = () => {
       <div className="navbar-end gap-5 font-semibold">
         {user ? (
           <>
+            <Link to={"/dashboard/main"} className="btn mr-2">
+              Dashboard
+            </Link>
             <div
               className="tooltip tooltip-bottom"
               data-tip={user?.displayName}
