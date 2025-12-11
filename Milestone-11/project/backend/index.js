@@ -34,13 +34,13 @@ async function run() {
     // user collection
     app.post("/users", async (req, res) => {
       const userInfo = req.body;
-      userInfo.role = "buyer";
       userInfo.createdAt = new Date();
 
       const result = await userCollections.insertOne(userInfo);
       res.send(result);
     });
 
+    // user role get
     app.get("/users/role/:email", async (req, res) => {
       const { email } = req.params;
 
