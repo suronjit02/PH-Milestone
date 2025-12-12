@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation } from "react-router";
 import {
   Home,
@@ -12,11 +12,13 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import { AuthContext } from "../../provider/AuthProvider";
 
-export default function Aside({ onLogout, counts = {} }) {
+ function Aside() {
   const [collapsed, setCollapsed] = useState(false);
-  const [q, setQ] = useState("");
+  // const [q, setQ] = useState("");
   const location = useLocation();
+  const { user, logout } = useContext(AuthContext);
 
   const nav = [
     { to: "/admin", label: "Dashboard", icon: <Home size={16} /> },
@@ -24,19 +26,16 @@ export default function Aside({ onLogout, counts = {} }) {
       to: "/admin/users",
       label: "Users",
       icon: <Users size={16} />,
-      badge: counts.users,
     },
     {
       to: "/admin/reports",
       label: "Reports",
       icon: <BarChart2 size={16} />,
-      badge: counts.reports,
     },
     {
       to: "/admin/content",
       label: "Content",
       icon: <Folder size={16} />,
-      badge: counts.content,
     },
     { to: "/admin/settings", label: "Settings", icon: <Settings size={16} /> },
   ];
@@ -65,27 +64,6 @@ export default function Aside({ onLogout, counts = {} }) {
             </div>
           )}
         </div>
-        {!collapsed && (
-          <button
-            onClick={onLogout}
-            className="text-sm px-3 py-1 rounded-md bg-red-50 text-red-600 hover:bg-red-100 hidden sm:inline-flex"
-          >
-            <LogOut size={14} className="mr-2" /> Logout
-          </button>
-        )}
-      </div>
-
-      {/* search */}
-      <div className={`px-3 ${collapsed ? "hidden" : ""}`}>
-        <div className="relative">
-          <input
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            placeholder="Search..."
-            className="w-full pl-9 pr-3 py-2 rounded-md border border-gray-200 focus:outline-none focus:ring-1 focus:ring-sky-300"
-          />
-          <Search className="absolute left-2 top-2 text-gray-400" size={16} />
-        </div>
       </div>
 
       {/* nav */}
@@ -112,19 +90,25 @@ export default function Aside({ onLogout, counts = {} }) {
               </Link>
             </li>
           ))}
-        </ul>  
+        </ul>
       </nav>
 
-      {/* bottom */}
       <div className="px-3 py-4 border-t border-gray-100">
         <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-full bg-gradient-to-r from-sky-400 to-indigo-500 flex items-center justify-center text-white font-bold">
-            A
+          <div className="h-10 w-10 rounded-full">
+            <img src={user?.mainPhotoUrl} alt="" />
           </div>
           {!collapsed && (
             <div className="flex-1">
-              <div className="text-sm font-semibold">Manager Name</div>
-              <div className="text-xs text-gray-500">admin@example.com</div>
+              <div className="text-sm font-semibold">{user?.name}</div>
+              <div className="text-xs text-gray-500">{user?.email}</div>
+
+              <button
+                onClick={logout}
+                className="text-sm px-3 py-1 rounded-md bg-red-50 text-red-600 hover:bg-red-100 hidden sm:inline-flex"
+              >
+                <LogOut size={14} className="mr-2" /> Logout
+              </button>
             </div>
           )}
         </div>
@@ -132,3 +116,4 @@ export default function Aside({ onLogout, counts = {} }) {
     </aside>
   );
 }
+export default Aside;

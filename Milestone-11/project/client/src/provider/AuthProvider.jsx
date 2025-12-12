@@ -76,13 +76,13 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     if (!user) return;
     axios.get(`http://localhost:5000/users/role/${user.email}`).then((res) => {
-      console.log(res.data.role);
+      // console.log(res.data.role);
 
       setRole(res.data.role);
     });
   }, [user]);
 
-  console.log(role);
+  // console.log(role);
 
   return (
     <AuthContext.Provider

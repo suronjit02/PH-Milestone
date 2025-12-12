@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { useContext, useState } from "react";
@@ -11,17 +11,34 @@ const Register = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [showPass, setShowPass] = useState(false);
+  const [upazilas, setUpazilas] = useState([]);
+  const [districts, setDistricts] = useState([]);
+  const [district, setDistrict] = useState("");
+  const [upazila, setUpazila] = useState("");
+
+  useEffect(() => {
+    axios.get("/upazila.json").then((res) => {
+      setUpazilas(res.data.upazilas);
+    });
+
+    axios.get("/district.json").then((res) => {
+      setDistricts(res.data.districts);
+    });
+  }, []);
+
+  // console.log(upazilas);
+  // console.log(districts);
 
   const handleSignUp = async (event) => {
     event.preventDefault();
     const name = event.target.name.value;
-    const role = event.target.role.value;
+    const blood = event.target.blood.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
     const photoUrl = event.target.photoUrl;
     const file = photoUrl.files[0];
 
-    console.log(role);
+    // console.log(blood);
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
@@ -49,8 +66,12 @@ const Register = () => {
       email,
       password,
       mainPhotoUrl,
-      role,
+      blood,
+      district,
+      upazila,
     };
+
+    console.log(formData);
 
     if (res.data.success == true) {
       createUser(email, password, name, mainPhotoUrl)
@@ -117,16 +138,56 @@ const Register = () => {
             />
           </div>
 
-          <label className="font-semibold">Your Role</label>
+          <label className="font-semibold">Your Blood Group</label>
           <select
             required
-            name="role"
-            defaultValue="Chose Role"
+            name="blood"
+            defaultValue="Chose Blood Group"
             className="select w-full"
           >
-            <option disabled={true}>Chose Role</option>
-            <option value="manager">Manager</option>
-            <option value="buyer">Buyer</option>
+            <option disabled={true}>Chose Blood Group</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+          </select>
+
+          <label className="font-semibold">Your District</label>
+          <select
+            onChange={(e) => setDistrict(e.target.value)}
+            required
+            name="district"
+            defaultValue="Chose Your District"
+            className="select w-full"
+          >
+            <option disabled={true}>Chose Your District</option>
+
+            {districts.map((district) => (
+              <option value={district.name} key={district.id}>
+                {district?.name}
+              </option>
+            ))}
+          </select>
+
+          <label className="font-semibold">Your Upazila</label>
+          <select
+            onChange={(e) => setUpazila(e.target.value)}
+            required
+            name="upazila"
+            defaultValue="Chose Your Upazila"
+            className="select w-full"
+          >
+            <option disabled={true}>Chose Your Upazila</option>
+
+            {upazilas.map((upazila) => (
+              <option value={upazila.name} key={upazila.id}>
+                {upazila?.name}
+              </option>
+            ))}
           </select>
 
           <div className="flex flex-col">
