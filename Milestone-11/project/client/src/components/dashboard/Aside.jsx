@@ -1,119 +1,44 @@
-import React, { useContext, useState } from "react";
-import { Link, useLocation } from "react-router";
-import {
-  Home,
-  Users,
-  Folder,
-  Settings,
-  LogOut,
-  BarChart2,
-  Search,
-  Menu,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
-import { AuthContext } from "../../provider/AuthProvider";
+import React from "react";
+import { NavLink } from "react-router";
+import { LayoutDashboard, PlusCircle, LogOut } from "lucide-react";
 
- function Aside() {
-  const [collapsed, setCollapsed] = useState(false);
-  // const [q, setQ] = useState("");
-  const location = useLocation();
-  const { user, logout } = useContext(AuthContext);
-
-  const nav = [
-    { to: "/admin", label: "Dashboard", icon: <Home size={16} /> },
-    {
-      to: "/admin/users",
-      label: "Users",
-      icon: <Users size={16} />,
-    },
-    {
-      to: "/admin/reports",
-      label: "Reports",
-      icon: <BarChart2 size={16} />,
-    },
-    {
-      to: "/admin/content",
-      label: "Content",
-      icon: <Folder size={16} />,
-    },
-    { to: "/admin/settings", label: "Settings", icon: <Settings size={16} /> },
-  ];
-
-  const isActive = (path) => location.pathname === path;
-
+const Aside = () => {
   return (
-    <aside
-      className={`bg-white/60 backdrop-blur-md border-r border-gray-200 h-screen transition-all duration-200 flex flex-col 
-        ${collapsed ? "w-20" : "w-64"}`}
-    >
-      {/* top */}
-      <div className="flex items-center justify-between p-4">
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => setCollapsed((s) => !s)}
-            className="p-2 rounded-md hover:bg-gray-100"
-            aria-label="Toggle sidebar"
-          >
-            {collapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
-          </button>
-          {!collapsed && (
-            <div>
-              <h3 className="text-lg font-semibold">Manager</h3>
-              <p className="text-xs text-gray-500">Control panel</p>
-            </div>
-          )}
-        </div>
-      </div>
+    <aside className="w-64 min-h-screen bg-gray-900 text-white p-5">
+      <h2 className="text-xl font-bold mb-8">Dashboard</h2>
 
-      {/* nav */}
-      <nav className="flex-1 overflow-auto mt-4 px-1">
-        <ul className="flex flex-col gap-1">
-          {nav.map((item) => (
-            <li key={item.to}>
-              <Link
-                to={item.to}
-                className={`flex items-center gap-3 px-3 py-2 rounded-md mx-2 hover:bg-sky-50 transition-colors 
-                  ${
-                    isActive(item.to)
-                      ? "bg-sky-100 text-sky-700 font-medium"
-                      : "text-gray-700"
-                  }`}
-              >
-                <span className="flex-none">{item.icon}</span>
-                {!collapsed && <span className="flex-1">{item.label}</span>}
-                {!collapsed && item.badge ? (
-                  <span className="text-xs bg-sky-100 text-sky-700 px-2 py-1 rounded-full">
-                    {item.badge}
-                  </span>
-                ) : null}
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <nav className="space-y-3">
+        <NavLink
+          to="/dashboard"
+          className={({ isActive }) =>
+            `flex items-center gap-2 p-2 rounded ${
+              isActive ? "bg-gray-700" : "hover:bg-gray-800"
+            }`
+          }
+        >
+          <LayoutDashboard size={18} />
+          Dashboard
+        </NavLink>
+
+        <NavLink
+          to="/dashboard/add-request"
+          className={({ isActive }) =>
+            `flex items-center gap-2 p-2 rounded ${
+              isActive ? "bg-gray-700" : "hover:bg-gray-800"
+            }`
+          }
+        >
+          <PlusCircle size={18} />
+          Add Request
+        </NavLink>
+
+        <button className="flex items-center gap-2 p-2 rounded hover:bg-gray-800 w-full text-left">
+          <LogOut size={18} />
+          Logout
+        </button>
       </nav>
-
-      <div className="px-3 py-4 border-t border-gray-100">
-        <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-full">
-            <img src={user?.mainPhotoUrl} alt="" />
-          </div>
-          {!collapsed && (
-            <div className="flex-1">
-              <div className="text-sm font-semibold">{user?.name}</div>
-              <div className="text-xs text-gray-500">{user?.email}</div>
-
-              <button
-                onClick={logout}
-                className="text-sm px-3 py-1 rounded-md bg-red-50 text-red-600 hover:bg-red-100 hidden sm:inline-flex"
-              >
-                <LogOut size={14} className="mr-2" /> Logout
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
     </aside>
   );
-}
+};
+
 export default Aside;

@@ -6,38 +6,32 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import DashboardLayout from "../DashboardLayout/DashboardLayout";
 import Mmaindashboard from "../pages/dashboard/maindashboard/Mmaindashboard";
+import AddRequest from "../pages/dashboard/add-request/AddRequest";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout></RootLayout>,
-
+    element: <RootLayout />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "login", element: <Login /> },
+      { path: "register", element: <Register /> },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: <DashboardLayout />,
     children: [
       {
-        path: "/",
-        element: <Home></Home>,
+        index: true,
+        element: <Mmaindashboard />,
       },
       {
-        path: "/login",
-        element: <Login></Login>,
-      },
-      {
-        path: "/register",
-        element: <Register></Register>,
+        path: "/dashboard/add-request",
+        element: <AddRequest />,
       },
     ],
   },
-
-  {
-    path: '/dashboard',
-    element: <DashboardLayout></DashboardLayout>,
-    children: [
-      {
-        path: '/dashboard/main',
-        element: <Mmaindashboard></Mmaindashboard>
-      }
-    ]
-  }
 ]);
 
 export default router;

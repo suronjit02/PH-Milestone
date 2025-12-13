@@ -1,15 +1,8 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default;
+}
 
 body {
   background: radial-gradient(circle, #ff4b4b 0%, #ff4b4b 15%, #3cbf55 100%);
 }
-
-
-
-
-
-
-
-
-

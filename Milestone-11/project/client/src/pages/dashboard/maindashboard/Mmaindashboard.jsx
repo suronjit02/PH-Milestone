@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const Mmaindashboard = () => {
-    return (
-        <div>
-            Maindashboard
-        </div>
-    );
+  return <div>Main Maindashboard</div>;
 };
 
 export default Mmaindashboard;

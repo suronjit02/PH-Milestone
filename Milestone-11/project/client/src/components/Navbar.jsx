@@ -121,7 +121,7 @@ const Navbar = () => {
       <div className="navbar-end gap-5 font-semibold">
         {user ? (
           <>
-            <Link to={"/dashboard/main"} className="btn mr-2">
+            <Link to={"/dashboard"} className="btn mr-2">
               Dashboard
             </Link>
             <div
